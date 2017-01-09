@@ -14,7 +14,7 @@ import static java.lang.Math.min;
  */
 public class BadConsequence {
     static final int MAXTREASURES=10;
-    private String text;
+    private String tex;
     private int levels;
     private int nVisibleTreasures;
     private int nHiddenTreasures;
