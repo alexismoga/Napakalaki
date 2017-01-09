@@ -18,8 +18,8 @@ public class Player {
     boolean dead=true;
     boolean canISteal=true;
     protected Player enemy;
-    private ArrayList<Treasure> hiddenTreasures;
-    private ArrayList<Treasure> visibleTreasures;
+    protected ArrayList<Treasure> hiddenTreasures;
+    protected ArrayList<Treasure> visibleTreasures;
     private BadConsequence pendingBadConsequence;
     
     public Player(String name){
@@ -29,6 +29,14 @@ public class Player {
         this.visibleTreasures = new ArrayList();
     }
     
+    //Constructor para poder hacer el super(p) de CultisPlayer
+    public Player(Player p){
+       this.name=p.name;
+       this.level=p.level;
+       this.hiddenTreasures=p.hiddenTreasures;
+       this.visibleTreasures=p.visibleTreasures;
+   }
+    
     public String getName(){
         return name;
     }
@@ -37,13 +45,33 @@ public class Player {
         this.dead = false;
     }
     
-    private int getCombatLevel(){
+    protected int getCombatLevel(){
        int lev=level;
        for(Treasure t: visibleTreasures){
            lev+=t.getBonus();
        }
         return lev;
     }
+    
+    protected int getOponentLevel(Monster m){
+        return m.getCombatLevel();
+    }
+    
+    protected Player getEnemy(){
+        return enemy;
+    }
+    
+    protected boolean shouldConvert(){
+        Dice dice=Dice.getInstance();
+        boolean should=false;
+        
+        if(dice.nextNumber()==6){
+            should=true;
+        }
+        
+        return should;
+    }
+    
     
     private void incrementLevels(int l){
         level += l;
@@ -159,27 +187,35 @@ public class Player {
     }
     public CombatResult combat(Monster m){
         int myLevel = this.getCombatLevel(); // 1.1.1
-        int monsterLevel = m.getCombatLevel(); // 1.1.2
+        int monsterLevel = this.getOponentLevel(m); // 1.1.2
         int enemyLevel = 0;
+        boolean should;
         CombatResult result;
+        
         if(!canISteal){
-          Dice dice = Dice.getInstance(); //1.1.3
-          int number = dice.nextNumber(); //1.1.4
-          if(number<3){
-              enemyLevel = enemy.getCombatLevel(); //1.1.5
+            Dice dice = Dice.getInstance(); //1.1.3
+            int number = dice.nextNumber(); //1.1.4
+            if(number<3){
+              enemyLevel = this.getOponentLevel(m);//1.1.5
               monsterLevel += enemyLevel;
-          }
+            }
         }
-          if(myLevel>monsterLevel){
-              this.applyPrize(m); //1.1.6
-              if(level >=MAXLEVEL)
-                  result=CombatResult.WINGAME;
-              else
-                  result=CombatResult.WIN;
-          }else{
-              this.applyBadConsequence(m); //1.1.7
-              result = CombatResult.LOSE;
-          }
+        if(myLevel>monsterLevel){
+            this.applyPrize(m); //1.1.6
+            if(level >=MAXLEVEL)
+                result=CombatResult.WINGAME;
+            else
+                result=CombatResult.WIN;
+        }else{
+            this.applyBadConsequence(m); //1.1.7
+            should=this.shouldConvert();
+            if(should==true){
+                result=CombatResult.LOSEANDCONVERT;
+            }
+            else{
+                result=CombatResult.LOSE;
+            }
+        }
         return  result; //1.1.10
     }
     

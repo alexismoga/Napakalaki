@@ -78,6 +78,15 @@ public class Napakalaki {
         Monster m = currentMonster;
         CombatResult result;
         result = currentPlayer.combat(m); // 1.1
+        if(result == CombatResult.LOSEANDCONVERT){
+            Cultist unicaInsta = this.dealer.nextCultist();
+            CultistPlayer newplayer=new CultistPlayer(currentPlayer,unicaInsta);
+            int currentpind=players.indexOf(currentPlayer);
+            Player enemy=currentPlayer.enemy;
+            this.players.set(currentpind, newplayer);
+            this.currentPlayer=newplayer;
+            newplayer.setEnemy(enemy);
+        }
         dealer.giveMonsterBack(m); //1.2
         
         return result;
