@@ -62,16 +62,8 @@ public class Player {
     }
     
     protected boolean shouldConvert(){
-        Dice dice=Dice.getInstance();
-        boolean should=false;
-        
-        if(dice.nextNumber()==6){
-            should=true;
-        }
-        
-        return should;
+        return (Dice.getInstance().nextNumber() == 6);
     }
-    
     
     private void incrementLevels(int l){
         level += l;
