@@ -20,7 +20,7 @@ public class Player {
     protected Player enemy;
     protected ArrayList<Treasure> hiddenTreasures;
     protected ArrayList<Treasure> visibleTreasures;
-    private BadConsequence pendingBadConsequence;
+    public BadConsequence pendingBadConsequence;
     
     public Player(String name){
         this.name = name;
@@ -222,14 +222,14 @@ public class Player {
     public void discardVisibleTreasure(Treasure t){
         this.visibleTreasures.remove(t); //1.2.1
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty()))
-            pendingBadConsequence.substactVisibleTreasures(t); //1.2.2
+            pendingBadConsequence.substractVisibleTreasure(t); //1.2.2
         this.dieIfNoTreasures();  //1.2.3
     }
     
     public void discardHiddenTreasure(Treasure t){
         this.hiddenTreasures.remove(t); //1.2.1
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty()))
-            pendingBadConsequence.substractHiddenTreasures(t); //1.2.2
+            pendingBadConsequence.substractHiddenTreasure(t); //1.2.2
         this.dieIfNoTreasures();  //1.2.3
     }
     
