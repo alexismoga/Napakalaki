@@ -6,6 +6,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import GUI.Dice;
 
 /**
  *
@@ -248,6 +249,7 @@ public class Player {
         Treasure treasure = dealer.nextTreasure();
         hiddenTreasures.add(treasure);
         int number = dice.nextNumber();
+        
         if(number>1){
             treasure = dealer.nextTreasure();
             hiddenTreasures.add(treasure);
