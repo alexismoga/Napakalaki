@@ -56,7 +56,7 @@ public class NumericBadConsequence extends BadConsequence{
 	if (h.size() < nHiddenTreasures)
 	    nHidden = h.size();
         
-        NumericBadConsequence bc = new NumericBadConsequence(text, 0, nVisible, nHidden) {};
+        NumericBadConsequence bc = new NumericBadConsequence(text, 0, nVisible, nHidden);
         
         return bc;
     }
