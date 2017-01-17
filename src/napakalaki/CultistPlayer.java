@@ -19,7 +19,8 @@ public class CultistPlayer extends Player {
         this.totalCultistPlayers ++;
     }
     
-    protected int getCombatLevel(){
+    @Override
+    public int getCombatLevel(){
         int combtL;
         int nivelaso = super.getCombatLevel();
         int  porci = nivelaso * 70/100;
@@ -30,27 +31,27 @@ public class CultistPlayer extends Player {
         return combtL; 
     }
     
+    @Override
     protected int getOponentLevel(Monster m){
         return m.getCombatLevelAgainstCultistPlayer();
     }
     
+    @Override
     protected boolean shouldConvert(){
         return false;
     }
     
-    private Treasure giveMeATreasure(){
+    protected Treasure giveMeATreasure(){
         int rand = (int) (Math.random()*this.visibleTreasures.size());
         return this.visibleTreasures.get(rand);
     }
     
-    private boolean canYouGiveMeATreasure(){
-        boolean tiene = false;
-        if(this.enemy.visibleTreasures.size()>0)
-            tiene = true;
-        return tiene;
+    @Override
+    protected boolean canYouGiveMeATreasure(){
+        return (this.enemy.visibleTreasures.size()>0);
     }
     
-    public int  getTotalCultistPlayers(){
+    public static int  getTotalCultistPlayers(){
         return totalCultistPlayers;
     }
 }   

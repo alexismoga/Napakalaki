@@ -17,11 +17,11 @@ public class Prize {
         this.level = level;
     }
     
-    int getTreasures(){
+    public int getTreasures(){
         return this.treasures;
     }
     
-    int getLevel(){
+    public int getLevel(){
         return this.level;
     }
     

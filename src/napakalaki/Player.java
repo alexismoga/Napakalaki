@@ -46,7 +46,7 @@ public class Player {
         this.dead = false;
     }
     
-    protected int getCombatLevel(){
+    public int getCombatLevel(){
        int lev=level;
        for(Treasure t: visibleTreasures){
            lev+=t.getBonus();
@@ -292,12 +292,8 @@ public class Player {
         return this.canISteal;
     }
     
-    private boolean canYouGiveMeATreasure(){
-        boolean puede = false;
-        if(!this.getVisibleTreasures().isEmpty() && !this.getHiddenTreasures().isEmpty()){
-            puede = true;
-        }
-        return puede;
+    protected boolean canYouGiveMeATreasure(){
+        return (!this.getVisibleTreasures().isEmpty() && !this.getHiddenTreasures().isEmpty());
     }
     
     private void haveStolen(){
