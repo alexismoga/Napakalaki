@@ -5,9 +5,11 @@
  */
 package GUI;
 
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import napakalaki.CultistPlayer;
+import napakalaki.Napakalaki;
 import napakalaki.Player;
 import napakalaki.Treasure;
 
@@ -21,6 +23,7 @@ public class PlayerView extends javax.swing.JPanel {
      * Creates new form PlayerView
      */
     private Player playerModel;
+    private Napakalaki napakalakiModel;
             
     public PlayerView() {
         initComponents();
@@ -61,6 +64,10 @@ public class PlayerView extends javax.swing.JPanel {
         revalidate();
     }
     
+    public void setNapakalaki(Napakalaki n){
+        this.napakalakiModel = n;
+    }
+    
     private void fillTreasurePanel(JPanel aPanel, ArrayList<Treasure> aList){
         // Se elimina la información antigua
         aPanel.removeAll();
@@ -75,6 +82,20 @@ public class PlayerView extends javax.swing.JPanel {
         // Se fuerza la actualización visual del panel
         aPanel.repaint();
         aPanel.revalidate();
+    }
+    
+    private ArrayList<Treasure> getSelectedTreasures(JPanel aPanel) {
+        // Se recorren los tesoros que contiene el panel,
+        // almacenando en un vector aquellos que están seleccionados.
+        // Finalmente se devuelve dicho vector.
+        TreasureView tv;
+        ArrayList<Treasure> output = new ArrayList();
+        for (Component c : aPanel.getComponents()) {
+            tv = (TreasureView) c;
+            if ( tv.isSelected() )
+                output.add ( tv.getTreasure() );
+        }
+        return output;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -143,6 +164,11 @@ public class PlayerView extends javax.swing.JPanel {
         stealTreasure.setText("Steal Treasure");
 
         makeVisible.setText("Make Visible");
+        makeVisible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                makeVisibleActionPerformed(evt);
+            }
+        });
 
         discardTreasures.setText("Discard Treasures");
 
@@ -250,6 +276,15 @@ public class PlayerView extends javax.swing.JPanel {
                 .addGap(39, 39, 39))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void makeVisibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeVisibleActionPerformed
+        //Recopilar info de la GUI
+        ArrayList<Treasure> selHidden = getSelectedTreasures (hiddenTreasures);
+        //Enviar mensajes al modelo para que se desarrolle la acción
+        napakalakiModel.makeTreasuresVisible (selHidden);
+        //Actualizar la vista
+        setPlayer (napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_makeVisibleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

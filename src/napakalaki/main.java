@@ -19,15 +19,14 @@ public class main {
     public static void main(String[] args) {
         Napakalaki game = Napakalaki.getInstance();
         NapakalakiView napakalakiView = new NapakalakiView();
+        Dice.createInstance(napakalakiView);
+        napakalakiView.setNapakalaki(game);
+        napakalakiView.setVisible(true);
+         
         ArrayList<String> names;
         PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
         
         names = namesCapture.getNames();
-        game.initGame(names);
-        napakalakiView.setVisible(true);
-        
-        Dice.createInstance(napakalakiView);
-        napakalakiView.setNapakalaki(game);
-        
+        game.initGame(names);    
     }
 }

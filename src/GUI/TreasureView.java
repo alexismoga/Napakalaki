@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.awt.Color;
 import napakalaki.Treasure;
 
 /**
@@ -16,19 +17,28 @@ public class TreasureView extends javax.swing.JPanel {
     /**
      * Creates new form TreasureView
      */
-    Treasure treasureModel;
+    private Treasure treasureModel;
+    private boolean selected = false;
     
     public TreasureView() {
         initComponents();
     }
     
-    void setTreasure (Treasure t){
+    public void setTreasure (Treasure t){
         this.treasureModel = t;
         this.name.setText(treasureModel.getName());
         this.bonus.setText(Integer.toString(treasureModel.getBonus()));
         this.type.setText(treasureModel.getType().toString());
         repaint();
         revalidate();
+    }
+    
+    public boolean isSelected(){
+        return selected;
+    }
+    
+    public Treasure getTreasure(){
+        return treasureModel;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,6 +56,12 @@ public class TreasureView extends javax.swing.JPanel {
         name = new javax.swing.JLabel();
         bonus = new javax.swing.JLabel();
         type = new javax.swing.JLabel();
+
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         JLabelNombreT.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JLabelNombreT.setText("Nombre:");
@@ -98,6 +114,16 @@ public class TreasureView extends javax.swing.JPanel {
                 .addGap(50, 50, 50))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        this.setBackground(Color.blue);
+        this.setOpaque(selected);
+        
+        if(selected==true)
+            selected=false;
+        else
+            selected=true;
+    }//GEN-LAST:event_formMouseClicked
     
     
     

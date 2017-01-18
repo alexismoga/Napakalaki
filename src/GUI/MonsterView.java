@@ -6,6 +6,7 @@
 package GUI;
 
 import napakalaki.Monster;
+import napakalaki.Napakalaki;
 
 /**
  *
@@ -17,6 +18,7 @@ public class MonsterView extends javax.swing.JPanel {
      * Creates new form MonsterView
      */
     private Monster monsterModel;
+    private Napakalaki napakalakiModel;
     
     public MonsterView() {
         initComponents();
@@ -32,6 +34,11 @@ public class MonsterView extends javax.swing.JPanel {
         repaint();
         revalidate();
     }
+    
+    public void setNapakalaki(Napakalaki n){
+        this.napakalakiModel = n;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
