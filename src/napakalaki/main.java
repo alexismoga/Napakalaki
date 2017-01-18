@@ -17,16 +17,16 @@ import java.util.ArrayList;
 public class main {
     
     public static void main(String[] args) {
-        Napakalaki game = Napakalaki.getInstance();
-        NapakalakiView napakalakiView = new NapakalakiView();
-        Dice.createInstance(napakalakiView);
-        napakalakiView.setNapakalaki(game);
-        napakalakiView.setVisible(true);
+        Napakalaki game=Napakalaki.getInstance();
+        NapakalakiView napakalakiView=new NapakalakiView();
+        Dice.createInstance (napakalakiView);
          
         ArrayList<String> names;
-        PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
-        
+        PlayerNamesCapture namesCapture=new PlayerNamesCapture(napakalakiView,true);
         names = namesCapture.getNames();
-        game.initGame(names);    
+        game.initGame(names);
+        napakalakiView.setNapakalaki(game);
+          
+        napakalakiView.setVisible (true);//Este siempre último   
     }
 }

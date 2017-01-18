@@ -12,10 +12,7 @@ import napakalaki.Prize;
  * @author Alexis
  */
 public class PrizeView extends javax.swing.JPanel {
-    
-    /**
-     * Creates new form PrizeView
-     */
+
     private Prize prizeModel;
     
     public PrizeView() {
