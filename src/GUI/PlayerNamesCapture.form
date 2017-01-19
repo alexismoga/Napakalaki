@@ -88,7 +88,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel3"/>
+        <Property name="text" type="java.lang.String" value="Player 3"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="name1">

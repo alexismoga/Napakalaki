@@ -241,6 +241,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Steal Treasure"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stealTreasureActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="makeVisible">
       <Properties>
@@ -254,11 +257,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Discard Treasures"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardTreasuresActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="discardAllTreasures">
       <Properties>
         <Property name="text" type="java.lang.String" value="Discard All Treasures"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardAllTreasuresActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="TituloPlayer">
       <Properties>

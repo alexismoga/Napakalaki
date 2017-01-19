@@ -162,6 +162,11 @@ public class PlayerView extends javax.swing.JPanel {
         nCultist.setText("jLabel8");
 
         stealTreasure.setText("Steal Treasure");
+        stealTreasure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stealTreasureActionPerformed(evt);
+            }
+        });
 
         makeVisible.setText("Make Visible");
         makeVisible.addActionListener(new java.awt.event.ActionListener() {
@@ -171,8 +176,18 @@ public class PlayerView extends javax.swing.JPanel {
         });
 
         discardTreasures.setText("Discard Treasures");
+        discardTreasures.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardTreasuresActionPerformed(evt);
+            }
+        });
 
         discardAllTreasures.setText("Discard All Treasures");
+        discardAllTreasures.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardAllTreasuresActionPerformed(evt);
+            }
+        });
 
         TituloPlayer.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         TituloPlayer.setText("PLAYER");
@@ -286,6 +301,66 @@ public class PlayerView extends javax.swing.JPanel {
         setPlayer (napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_makeVisibleActionPerformed
 
+    private void stealTreasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stealTreasureActionPerformed
+        if(playerModel.canISteal()){
+            this.playerModel.stealTreasure();  
+            setPlayer(napakalakiModel.getCurrentPlayer());
+        }
+    }//GEN-LAST:event_stealTreasureActionPerformed
+
+    private void discardTreasuresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardTreasuresActionPerformed
+        ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasures);
+        ArrayList<Treasure> selVisible = getSelectedTreasures(visibleTreasures);
+        
+        napakalakiModel.discardHiddenTreasures(selHidden);
+        napakalakiModel.discardVisibleTreasures(selVisible);
+        
+        setPlayer(napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_discardTreasuresActionPerformed
+
+    private void discardAllTreasuresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardAllTreasuresActionPerformed
+        this.playerModel.discardAllTreasures();
+        setPlayer(napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_discardAllTreasuresActionPerformed
+    
+    void DisableDiscardAllTreasures() {
+        this.discardAllTreasures.setEnabled(false);
+    }
+
+    void DisableMakeVisible() {
+        this.makeVisible.setEnabled(false);
+    }
+    
+    void DisableDiscardTreasure(){
+        this.discardTreasures.setEnabled(false);
+    }
+    
+    void DisableStealTreasure(){
+        this.stealTreasure.setEnabled(false);
+    }
+    
+    void EnableDiscardAllTreasures() {
+        this.discardAllTreasures.setEnabled(true);
+    }
+
+    void EnableMakeVisible() {
+        this.makeVisible.setEnabled(true);
+    }
+    
+    void EnableDiscardTreasure(){
+        this.discardTreasures.setEnabled(true);
+    }
+    
+    void EnableStealTreasure(){
+        this.stealTreasure.setEnabled(true);
+    }
+    
+    public void DisableAllButtons(){
+        stealTreasure.setEnabled(false);
+        makeVisible.setEnabled(false);
+        discardTreasures.setEnabled(false);
+        discardAllTreasures.setEnabled(false);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TituloPlayer;

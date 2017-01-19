@@ -56,7 +56,7 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
 
         jLabel2.setText("Player 2");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Player 3");
 
         jButton1.setText("CANCEL");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
