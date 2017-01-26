@@ -43,7 +43,7 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel1.setText("Pending Bad Consequence");
 
-        pendingBad.setText("jLabel2");
+        pendingBad.setText("......");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

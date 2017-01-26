@@ -51,7 +51,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="pendingBad">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
+        <Property name="text" type="java.lang.String" value="......"/>
       </Properties>
     </Component>
   </SubComponents>

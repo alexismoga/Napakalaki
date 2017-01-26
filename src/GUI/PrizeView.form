@@ -47,7 +47,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace pref="82" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,12 +92,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="treasures">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="...."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="level">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="...."/>
       </Properties>
     </Component>
   </SubComponents>
