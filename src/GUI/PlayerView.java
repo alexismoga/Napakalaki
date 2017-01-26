@@ -129,35 +129,39 @@ public class PlayerView extends javax.swing.JPanel {
         TituloPlayer = new javax.swing.JLabel();
         pendingBadConsequenceView1 = new GUI.PendingBadConsequenceView();
 
-        jLabel1.setText("Nombre:");
+        jLabel1.setText("Name:");
 
         name.setText(".....");
 
-        jLabel2.setText("Nivel:");
+        jLabel2.setText("Level:");
 
         level.setText("....");
 
-        jLabel3.setText("¿Muerto?:");
+        jLabel3.setText("Dead?:");
 
         death.setText("....");
 
-        hiddenTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tesoros Ocultos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(0, 0, 0)));
+        hiddenTreasures.setBackground(java.awt.SystemColor.activeCaption);
+        hiddenTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hidden Treasures", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(0, 0, 0)));
+        hiddenTreasures.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
 
-        visibleTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder("Tesoros Visibles"));
+        visibleTreasures.setBackground(new java.awt.Color(153, 255, 255));
+        visibleTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder("Visible Treasures"));
+        visibleTreasures.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
 
-        jLabel4.setText("¿Cultist?:");
+        jLabel4.setText("Cultist?:");
 
         cultist.setText("....");
 
-        jLabel5.setText("Nivel Combate:");
+        jLabel5.setText("Combat lvl:");
 
         combatLevel.setText("....");
 
-        jLabel6.setText("¿Puedo robar?");
+        jLabel6.setText("Can I steal?:");
 
         canISteal.setText("....");
 
-        jLabel7.setText("Jugadores Cultist");
+        jLabel7.setText("Cultist Plyrs:");
 
         nCultist.setText("....");
 
@@ -280,6 +284,8 @@ public class PlayerView extends javax.swing.JPanel {
                 .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        hiddenTreasures.getAccessibleContext().setAccessibleName("Tesoros ocultos");
     }// </editor-fold>//GEN-END:initComponents
 
     private void makeVisibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeVisibleActionPerformed

@@ -43,43 +43,35 @@ public class SpecificBadConsequence extends BadConsequence {
     
     @Override
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
-        BadConsequence bad_ret;
-        
-        if(!isEmpty()){
-                boolean insertado=false;
-                
-                ArrayList<TreasureKind> sp_v=new ArrayList(), sp_h=new ArrayList();
-                
-                for(TreasureKind spvi :specificVisibleTreasures){
-                    insertado= false;
-                    for(Treasure spvp :v){
-                        if(!insertado)
-                            if(spvi==spvp.getType()){
-                                if(!sp_v.contains(spvi)){
-                                    sp_v.add(spvi);
-                                    insertado=true;
-                                }
-                            }
-                    }
-                }
-                
-                for(TreasureKind sphi :specificHiddenTreasures){
-                    insertado= false;
-                    for(Treasure sphp :h){
-                        if(!insertado)
-                            if(sphi==sphp.getType()){
-                                if(!sp_h.contains(sphi)){
-                                    sp_h.add(sphi);
-                                    insertado= true;
-                                }
-                            }
-                    }
-                }
-                bad_ret= new SpecificBadConsequence(text, levels, sp_v, sp_h);
+        SpecificBadConsequence resultado=null;
+        levels=0;
+         if(!v.isEmpty() || !h.isEmpty()){
+            ArrayList<TreasureKind> visiblesR=new ArrayList();
+            ArrayList<TreasureKind> ocultosR=new ArrayList();
             
-            return bad_ret;
+            visiblesR=interseccion(v, this.specificVisibleTreasures);
+            ocultosR=interseccion(h, this.specificHiddenTreasures);
+            
+            resultado=new SpecificBadConsequence(this.getText(),this.getLevels(),visiblesR,ocultosR);
         }
-        return this;
+        
+        return resultado;
+    }
+    
+    //Creamos este método que hace la interseccion entre las listas de tesoros
+    private ArrayList<TreasureKind> interseccion(ArrayList<Treasure> tesoros, ArrayList<TreasureKind> tipos){
+        ArrayList<TreasureKind> resultado=new ArrayList();
+        ArrayList<Treasure> copiaTesoros=new ArrayList();
+        
+        copiaTesoros.addAll(tesoros);
+        
+        for(Treasure t : tesoros){
+            if(tipos.contains(t.getType())){
+                resultado.add(t.getType());
+                copiaTesoros.remove(t);
+            }
+        }
+        return resultado;
     }
     
     @Override

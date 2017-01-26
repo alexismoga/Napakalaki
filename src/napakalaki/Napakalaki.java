@@ -55,7 +55,7 @@ public class Napakalaki {
         if (this.currentPlayer == null)
             cumple = true; 
         else 
-            cumple= this.currentPlayer.validState(); //1.1.1
+            cumple = this.currentPlayer.validState(); //1.1.1
  
         return cumple;
     }

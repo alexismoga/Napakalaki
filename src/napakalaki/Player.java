@@ -28,6 +28,7 @@ public class Player {
         this.level = 1;
         this.hiddenTreasures = new ArrayList();
         this.visibleTreasures = new ArrayList();
+        this.pendingBadConsequence= new NumericBadConsequence("",0,0,0);
     }
     
     //Constructor para poder hacer el super(p) de CultisPlayer
@@ -36,6 +37,7 @@ public class Player {
        this.level=p.level;
        this.hiddenTreasures=p.hiddenTreasures;
        this.visibleTreasures=p.visibleTreasures;
+       this.pendingBadConsequence=p.pendingBadConsequence;
    }
     
     public String getName(){
@@ -165,11 +167,7 @@ public class Player {
     }
     
     public boolean isDead(){
-        boolean muerto = false;
-        if(dead==true){
-            muerto = true;
-        }
-        return muerto;
+        return dead;
     }
     
     public ArrayList<Treasure> getHiddenTreasures(){

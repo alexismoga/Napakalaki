@@ -126,7 +126,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre:"/>
+        <Property name="text" type="java.lang.String" value="Name:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="name">
@@ -136,7 +136,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nivel:"/>
+        <Property name="text" type="java.lang.String" value="Level:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="level">
@@ -146,7 +146,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xbf;Muerto?:"/>
+        <Property name="text" type="java.lang.String" value="Dead?:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="death">
@@ -156,23 +156,38 @@
     </Component>
     <Container class="javax.swing.JPanel" name="hiddenTreasures">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="d1" green="b4" id="Active Caption" palette="2" red="99" type="palette"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Tesoros Ocultos">
+            <TitledBorder title="Hidden Treasures">
               <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
             </TitledBorder>
           </Border>
         </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor de Punto de Mira"/>
+        </Property>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Tesoros ocultos"/>
+      </AccessibilityProperties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
     <Container class="javax.swing.JPanel" name="visibleTreasures">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="99" type="rgb"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Tesoros Visibles"/>
+            <TitledBorder title="Visible Treasures"/>
           </Border>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor de Punto de Mira"/>
         </Property>
       </Properties>
 
@@ -180,7 +195,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xbf;Cultist?:"/>
+        <Property name="text" type="java.lang.String" value="Cultist?:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cultist">
@@ -190,7 +205,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nivel Combate:"/>
+        <Property name="text" type="java.lang.String" value="Combat lvl:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="combatLevel">
@@ -200,7 +215,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xbf;Puedo robar?"/>
+        <Property name="text" type="java.lang.String" value="Can I steal?:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="canISteal">
@@ -210,7 +225,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Jugadores Cultist"/>
+        <Property name="text" type="java.lang.String" value="Cultist Plyrs:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="nCultist">

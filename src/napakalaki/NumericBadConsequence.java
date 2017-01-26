@@ -47,18 +47,16 @@ public class NumericBadConsequence extends BadConsequence{
 
     @Override
     public NumericBadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
-        int nVisible = nVisibleTreasures;
-	int nHidden = nHiddenTreasures;
-		
-	if (v.size() < nVisibleTreasures)
-	    nVisible = v.size();
-		
-	if (h.size() < nHiddenTreasures)
-	    nHidden = h.size();
+        NumericBadConsequence resultado;
+        int visibles,ocultos;
+        levels=0;
+            
+        visibles=Math.min(v.size(), this.nVisibleTreasures);
+        ocultos=Math.min(h.size(), this.nHiddenTreasures);
+            
+        resultado=new NumericBadConsequence(this.getText(),this.getLevels(),visibles,ocultos);
         
-        NumericBadConsequence bc = new NumericBadConsequence(text, 0, nVisible, nHidden);
-        
-        return bc;
+        return resultado;
     }
     
     public String to_s() {
